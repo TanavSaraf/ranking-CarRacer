@@ -6,9 +6,9 @@ class Game
     }
     getState()
     {
-    var gameRef=db.ref("gameState");
+         var gameRef=db.ref("gameState");
          gameRef.on("value",function(data){
-             gameState = data.val();
+            gameState = data.val();
          })
         
     }
