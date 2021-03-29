@@ -13,11 +13,11 @@ class Form
     }
     display(){
         var title = createElement("h1","Car Racing Game")
-        title.position(130,0);
+        title.position(displayWidth/3,0);
        
-        this.input.position(130,100);
+        this.input.position(displayWidth/3,displayHeight/3 + 60);
         
-        this.button.position(130,150);
+        this.button.position(displayWidth/3,displayHeight/3+30);
 
         this.button.mousePressed(()=>
         {
@@ -30,7 +30,7 @@ class Form
             player.updateCount(playerCount);
             
             this.greeting.html("Hello " + player.name);
-            this.greeting.position(250,200);
+            this.greeting.position(displayWidth/3,displayHeight/5);
         })
     }
 }
