@@ -29,7 +29,7 @@ class Player
 
         })
     }
-
+    //binds to the class instead of object (static)
     static getPlayersInfo()
 {
     var playersRef = db.ref("players");
