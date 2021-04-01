@@ -38,4 +38,6 @@ function draw(){
     {
         game.end();
     }
+   
+    
 }

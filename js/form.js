@@ -4,6 +4,9 @@ class Form
         this.button=createButton("Start");
        this.input=createInput("name");
         this.greeting = createElement("h2");
+        this.reset=createButton("reset");
+       
+       
     }
     hide()
     {
@@ -19,6 +22,8 @@ class Form
         
         this.button.position(displayWidth/3,displayHeight/3+30);
 
+        this.reset.position(displayWidth/6,displayHeight/5)
+
         this.button.mousePressed(()=>
         {
             this.input.hide();
@@ -31,6 +36,15 @@ class Form
             
             this.greeting.html("Hello " + player.name);
             this.greeting.position(displayWidth/3,displayHeight/5);
+        })
+        this.reset.mousePressed(()=>
+        {
+            db.ref("/").set({
+                gameState :0,
+                playerCount :0
+
+            })
+            location.reload();
         })
     }
 }

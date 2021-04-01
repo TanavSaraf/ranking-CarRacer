@@ -62,13 +62,18 @@ class Game
                 cars[index-1].x=x;
                 cars[index-1].y=y;
 
-               
+                fill("blue")
                 if(index===player.index)
                 {
-                    cars[index-1].shapeColor="Red";
+                    textSize(15);
+                    fill("red")
+                   
                     camera.position.x=displayWidth/2;
                     camera.position.y=cars[index-1].y
                 }
+
+                
+                text(allPlayers[p].name,x-10,y-50)
                
             }
         }
