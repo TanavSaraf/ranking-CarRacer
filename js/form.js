@@ -41,10 +41,12 @@ class Form
         {
             db.ref("/").set({
                 gameState :0,
-                playerCount :0
-
+                playerCount :0,
+                reset:1,
+                carsAtEnd:0
             })
             location.reload();
+           
         })
     }
 }

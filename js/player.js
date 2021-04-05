@@ -5,6 +5,7 @@ class Player
         this.name = ""
         this.distance=0 
         this.index = null 
+        this.rank = "gameNotCompleted";
     }
     getCount()
     {
@@ -24,17 +25,31 @@ class Player
         var playerIndex="players/player"+this.index;
         db.ref(playerIndex).set({
             name:this.name,
-            distance:this.distance 
-            
+            distance:this.distance ,
+            rank:this.rank
 
         })
     }
     //binds to the class instead of object (static)
     static getPlayersInfo()
-{
-    var playersRef = db.ref("players");
-    playersRef.on("value",(data)=>{
-        allPlayers=data.val();
-    })
-}
+    {
+        var playersRef = db.ref("players");
+        playersRef.on("value",(data)=>{
+            allPlayers=data.val();
+        })
+    }
+    getCarsAtEnd()
+    {
+        var carRef = db.ref("carsAtEnd");
+        carRef.on("value",(data)=>
+        {
+            this.rank=data.val();
+        })
+
+    }
+   static updateCarsAtEnd(rank)
+    {
+        
+        db.ref("/").update({carsAtEnd : rank})
+    }
 }

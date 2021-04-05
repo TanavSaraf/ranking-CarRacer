@@ -4,6 +4,7 @@ var allPlayers;
 
 var cars,car1,car2,car3,car4
 var car1Img,car2Img,car3Img,car4Img,trackImg,groundImg
+var reset
 
 function preload()
 {
@@ -16,11 +17,16 @@ function preload()
 }
 
 function setup(){
+    reset=0;
     createCanvas(displayWidth-30,displayHeight -120);
     db=firebase.database()
    game=new Game();
    game.getState();
    game.start();
+   db.ref("reset").on("value",(data)=>{
+    reset=data.val();
+   })
+
 
 }
 
@@ -39,5 +45,13 @@ function draw(){
         game.end();
     }
    
-    
+   if(reset===1)
+   {
+       window.location.reload()
+       reset=0
+       db.ref("/").update({
+        reset:0
+    })
+
+   }
 }
