@@ -97,7 +97,7 @@ class Game
     }
     end()
     {
-        console.log("GameEnd "+player.name);
+        clear()
         Player.getPlayersInfo();
         var y = displayHeight-player.distance; 
         for(var p in allPlayers)
@@ -106,7 +106,7 @@ class Game
             textSize(20)
             fill("Black")
             strokeWeight(8);
-            text(allPlayers[p].name + " rank : " + allPlayers[p].rank,displayWidth/2,y)
+            text(allPlayers[p].name + " rank : " + allPlayers[p].rank,displayWidth/2-200,y);
         }
 
     }
